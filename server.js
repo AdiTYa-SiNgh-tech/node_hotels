@@ -55,6 +55,8 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
+require('dotenv').config();
+
 app.use(express.json());
 
 const personRoutes = require('./routes/personRoutes')
@@ -64,8 +66,8 @@ const menuItemRoutes = require('./routes/menuItemRoutes')
 app.use('/menu',menuItemRoutes);
 
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json()); //req.body
+// const bodyParser = require('body-parser');
+// app.use(bodyParser.json()); //req.body
 
 const Person = require('./models/Person');
 const menuItem = require('./models/menuItem');
@@ -77,18 +79,9 @@ app.get('/',function (req, res){
 
 //post route to add a person
 
+const PORT = process.env.PORT || 3000;
 
-
-
-
-
-
-
-
-
-
-
-app.listen(3000,() => {
+app.listen(PORT,() => {
   console.log("listening to port 3000")
 });
 
