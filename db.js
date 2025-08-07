@@ -10,7 +10,11 @@ const mongoURL = process.env.MONGODB_URL
 //     useUnifiedTopology : true
 // })
 //something is added
-mongoose.connect(mongoURL);
+mongoose.connect(mongoURL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+ssl: true,
+});
 
 
 //Get the default connection
